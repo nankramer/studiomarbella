@@ -1,6 +1,8 @@
 .DS_Store
 .npm-cache/
 node_modules/
+.next/
+.env.local
 
 # local build/deploy artifacts
 studio-marbella-theme.zip
