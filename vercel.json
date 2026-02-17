@@ -1,0 +1,8 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "nextjs",
+  "installCommand": "npm install --prefix indie-store",
+  "buildCommand": "npm run build --prefix indie-store",
+  "devCommand": "npm run dev --prefix indie-store",
+  "outputDirectory": "indie-store/.next"
+}
