@@ -1,0 +1,47 @@
+[
+  {
+    "name": "Theme settings",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Logo"
+      },
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Favicon"
+      },
+      {
+        "type": "color",
+        "id": "color_background",
+        "label": "Background",
+        "default": "#f5f3ef"
+      },
+      {
+        "type": "color",
+        "id": "color_text",
+        "label": "Body text",
+        "default": "#1d1c1a"
+      },
+      {
+        "type": "color",
+        "id": "color_accent",
+        "label": "Accent",
+        "default": "#9f8763"
+      },
+      {
+        "type": "text",
+        "id": "heading_font",
+        "label": "Heading font stack",
+        "default": "'Cormorant Garamond', 'Times New Roman', serif"
+      },
+      {
+        "type": "text",
+        "id": "body_font",
+        "label": "Body font stack",
+        "default": "'Manrope', 'Avenir Next', 'Helvetica Neue', sans-serif"
+      }
+    ]
+  }
+]

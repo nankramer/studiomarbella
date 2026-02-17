@@ -1,0 +1,70 @@
+<section class="product-page section-space">
+  <div class="page-width product-grid">
+    <div>
+      {% if product.featured_media %}
+        {{ product.featured_media | image_url: width: 1400 | image_tag: class: 'product-image', widths: '520,760,980,1200,1400' }}
+      {% endif %}
+    </div>
+
+    <div class="product-info">
+      <p class="eyebrow">{{ product.vendor }}</p>
+      <h1>{{ product.title }}</h1>
+      <p class="product-price">{{ product.price | money }}</p>
+      <div class="rte">{{ product.description }}</div>
+
+      {% form 'product', product %}
+        {% if product.has_only_default_variant == false %}
+          <label for="variant-select">Options</label>
+          <select id="variant-select" name="id" class="field">
+            {% for variant in product.variants %}
+              <option value="{{ variant.id }}" {% if variant == product.selected_or_first_available_variant %}selected{% endif %}>
+                {{ variant.title }} - {{ variant.price | money }}
+              </option>
+            {% endfor %}
+          </select>
+        {% else %}
+          <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+        {% endif %}
+
+        <label for="quantity">Quantity</label>
+        <input class="field" type="number" name="quantity" id="quantity" min="1" value="1">
+
+        <button type="submit" class="button button--primary" {% unless product.available %}disabled{% endunless %}>
+          {% if product.available %}Add to cart{% else %}Sold out{% endif %}
+        </button>
+      {% endform %}
+
+      <div class="product-meta">
+        <p><strong>Material:</strong> {{ section.settings.material }}</p>
+        <p><strong>Lead time:</strong> {{ section.settings.lead_time }}</p>
+        <p><strong>Care:</strong> {{ section.settings.care }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Main product",
+  "settings": [
+    {
+      "type": "text",
+      "id": "material",
+      "label": "Default material note",
+      "default": "Natural marble with unique veining"
+    },
+    {
+      "type": "text",
+      "id": "lead_time",
+      "label": "Default lead time",
+      "default": "2-4 weeks depending on item"
+    },
+    {
+      "type": "text",
+      "id": "care",
+      "label": "Default care note",
+      "default": "Wipe with soft cloth, avoid acidic cleaners"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,29 @@
+{
+  "sections": {
+    "hero": {
+      "type": "main-hero",
+      "settings": {
+        "eyebrow": "Sculptural marble for modern spaces",
+        "heading": "Studio Marbella",
+        "subheading": "Contemporary marble furniture, lighting, boards and objet crafted for timeless interiors.",
+        "primary_label": "Shop Furniture",
+        "secondary_label": "Explore Collections"
+      }
+    },
+    "collection_grid": {
+      "type": "collection-grid",
+      "settings": {
+        "heading": "Collections",
+        "copy": "From statement furniture to small collectible pieces."
+      }
+    },
+    "featured": {
+      "type": "featured-products",
+      "settings": {
+        "heading": "Featured Pieces",
+        "products_to_show": 4
+      }
+    }
+  },
+  "order": ["hero", "collection_grid", "featured"]
+}

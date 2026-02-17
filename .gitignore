@@ -1,0 +1,7 @@
+.DS_Store
+.npm-cache/
+node_modules/
+
+# local build/deploy artifacts
+studio-marbella-theme.zip
+studio-marbella-theme/

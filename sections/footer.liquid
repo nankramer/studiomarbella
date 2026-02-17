@@ -1,0 +1,49 @@
+<footer class="site-footer">
+  <div class="page-width footer-grid">
+    <div>
+      <h3 class="footer-title">Studio Marbella</h3>
+      <p class="footer-copy">Contemporary marble furniture, lighting and collectible objects for refined interiors.</p>
+    </div>
+
+    <div>
+      <h3 class="footer-title">Navigate</h3>
+      <ul class="footer-links" role="list">
+        {% for link in section.settings.menu.links %}
+          <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <div>
+      <h3 class="footer-title">Contact</h3>
+      <p class="footer-copy">{{ section.settings.email }}</p>
+      <p class="footer-copy">{{ section.settings.location }}</p>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Footer menu",
+      "default": "footer"
+    },
+    {
+      "type": "text",
+      "id": "email",
+      "label": "Contact email",
+      "default": "admin@stoneslabs.co.za"
+    },
+    {
+      "type": "text",
+      "id": "location",
+      "label": "Location",
+      "default": "South Africa"
+    }
+  ]
+}
+{% endschema %}

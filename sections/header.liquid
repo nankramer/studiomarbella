@@ -1,0 +1,34 @@
+<header class="site-header">
+  <div class="page-width header-wrap">
+    <a class="brand" href="{{ routes.root_url }}" aria-label="{{ shop.name }}">
+      {% if settings.logo != blank %}
+        {{ settings.logo | image_url: width: 420 | image_tag: class: 'brand-logo', loading: 'eager', widths: '180,260,320,420' }}
+      {% else %}
+        <span class="brand-text">Studio Marbella</span>
+      {% endif %}
+    </a>
+
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="PrimaryNav">Menu</button>
+
+    <nav id="PrimaryNav" class="site-nav" aria-label="Primary">
+      {% for link in section.settings.menu.links %}
+        <a href="{{ link.url }}" class="site-nav__link">{{ link.title }}</a>
+      {% endfor %}
+      <a href="{{ routes.cart_url }}" class="site-nav__link">Cart ({{ cart.item_count }})</a>
+    </nav>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Menu",
+      "default": "main-menu"
+    }
+  ]
+}
+{% endschema %}

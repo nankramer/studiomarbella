@@ -1,0 +1,89 @@
+<section class="collection-grid section-space">
+  <div class="page-width">
+    <div class="section-head">
+      <h2>{{ section.settings.heading }}</h2>
+      <p>{{ section.settings.copy }}</p>
+    </div>
+
+    <div class="grid grid--collections">
+      {% for block in section.blocks %}
+        {% assign collection = collections[block.settings.collection] %}
+        <article class="card" {{ block.shopify_attributes }}>
+          <a href="{{ collection.url | default: '#' }}">
+            {% if block.settings.image != blank %}
+              {{ block.settings.image | image_url: width: 1000 | image_tag: class: 'card-image', widths: '360,520,760,1000' }}
+            {% elsif collection.featured_image != blank %}
+              {{ collection.featured_image | image_url: width: 1000 | image_tag: class: 'card-image', widths: '360,520,760,1000' }}
+            {% else %}
+              <div class="card-image card-image--placeholder"></div>
+            {% endif %}
+            <div class="card-body">
+              <h3>{{ block.settings.title | default: collection.title }}</h3>
+              <p>{{ block.settings.copy }}</p>
+            </div>
+          </a>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Collection grid",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Browse by Category"
+    },
+    {
+      "type": "text",
+      "id": "copy",
+      "label": "Copy",
+      "default": "A curated range from everyday marble boards to statement furniture."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection",
+      "name": "Collection",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Override image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "text",
+          "id": "copy",
+          "label": "Description"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 8,
+  "presets": [
+    {
+      "name": "Collection grid",
+      "blocks": [
+        {"type": "collection"},
+        {"type": "collection"},
+        {"type": "collection"},
+        {"type": "collection"}
+      ]
+    }
+  ]
+}
+{% endschema %}

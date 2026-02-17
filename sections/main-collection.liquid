@@ -1,0 +1,25 @@
+<section class="collection-page section-space">
+  <div class="page-width">
+    <header class="section-head">
+      <h1>{{ collection.title }}</h1>
+      {% if collection.description != blank %}
+        <div class="rte">{{ collection.description }}</div>
+      {% endif %}
+    </header>
+
+    <div class="grid grid--products">
+      {% for product in collection.products %}
+        {% render 'card-product', product: product %}
+      {% else %}
+        <p>No products found in this collection yet.</p>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Main collection",
+  "settings": []
+}
+{% endschema %}
