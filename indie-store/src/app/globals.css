@@ -1,5 +1,14 @@
 @import "tailwindcss";
 
+:root {
+  --stone-bg: #f5f1ea;
+  --stone-surface: #e7ded1;
+  --stone-accent: #c4b6a2;
+  --ink-strong: #1e1a17;
+  --ink-muted: #6f665b;
+  --line-soft: #d9cec0;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -11,7 +20,10 @@ body {
 }
 
 body {
+  background: radial-gradient(circle at top right, #f8f4ee 0%, var(--stone-bg) 55%);
+  color: var(--ink-strong);
   font-family: "Manrope", "Avenir Next", "Helvetica Neue", sans-serif;
+  letter-spacing: 0.01em;
 }
 
 h1,
@@ -21,4 +33,6 @@ h4,
 h5,
 h6 {
   font-family: "Cormorant Garamond", "Times New Roman", serif;
+  font-weight: 500;
+  letter-spacing: 0.01em;
 }

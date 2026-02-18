@@ -100,19 +100,19 @@ export default function CheckoutPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#f4f1eb] text-[#1e1a17]">
+    <div className="min-h-screen bg-[var(--stone-bg)] text-[var(--ink-strong)]">
       <div className="mx-auto w-[min(820px,92vw)] py-10">
-        <Link href="/" className="text-sm uppercase tracking-[0.12em] text-[#6d6458] hover:underline">
+        <Link href="/" className="text-xs uppercase tracking-[0.16em] text-[var(--ink-muted)] hover:underline">
           Back to store
         </Link>
 
-        <h1 className="mt-4 font-serif text-4xl">Checkout</h1>
+        <h1 className="mt-4 font-serif text-5xl leading-none">Checkout</h1>
 
-        <div className="mt-8 grid gap-4 rounded border border-[#d8d0c4] bg-[#fcfbf8] p-5">
+        <div className="mt-8 grid gap-4 rounded-sm border border-[var(--line-soft)] bg-[#fbf8f3] p-6">
           <label className="grid gap-2 text-sm">
             Full name
             <input
-              className="rounded border border-[#d8d0c4] bg-white px-3 py-2"
+              className="rounded-sm border border-[var(--line-soft)] bg-white px-3 py-2"
               value={name}
               onChange={(event) => setName(event.target.value)}
             />
@@ -122,7 +122,7 @@ export default function CheckoutPage() {
             Email
             <input
               type="email"
-              className="rounded border border-[#d8d0c4] bg-white px-3 py-2"
+              className="rounded-sm border border-[var(--line-soft)] bg-white px-3 py-2"
               value={email}
               onChange={(event) => setEmail(event.target.value)}
             />
@@ -131,7 +131,7 @@ export default function CheckoutPage() {
           <label className="grid gap-2 text-sm">
             Payment gateway
             <select
-              className="rounded border border-[#d8d0c4] bg-white px-3 py-2"
+              className="rounded-sm border border-[var(--line-soft)] bg-white px-3 py-2"
               value={gateway}
               onChange={(event) => setGateway(event.target.value as Gateway)}
             >
@@ -140,9 +140,9 @@ export default function CheckoutPage() {
             </select>
           </label>
 
-          <div className="rounded border border-[#e6ddcf] bg-[#f6f1e8] p-3 text-sm">
+          <div className="rounded-sm border border-[#e0d6c8] bg-[#f3ece1] p-3 text-sm">
             <p className="font-semibold">Order total: {formatZar(total)}</p>
-            <p className="mt-1 text-[#6d6458]">Server recalculates totals from product IDs to prevent client-side price tampering.</p>
+            <p className="mt-1 text-[var(--ink-muted)]">Server recalculates totals from product IDs to prevent client-side price tampering.</p>
           </div>
 
           {error ? <p className="text-sm text-red-700">{error}</p> : null}
@@ -151,7 +151,7 @@ export default function CheckoutPage() {
             type="button"
             onClick={startCheckout}
             disabled={isLoading}
-            className="rounded bg-[#1e1a17] px-4 py-2 text-sm uppercase tracking-[0.12em] text-[#f4f1eb] disabled:opacity-60"
+            className="rounded-sm bg-[var(--ink-strong)] px-4 py-2 text-xs uppercase tracking-[0.18em] text-[var(--stone-bg)] transition hover:bg-black disabled:opacity-60"
           >
             {isLoading ? "Starting checkout..." : "Pay now"}
           </button>
